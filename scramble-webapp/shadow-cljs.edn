@@ -1,0 +1,12 @@
+{:source-paths ["src"]
+
+ :dependencies [[reagent "0.10.0"]
+                [re-frame "1.0.0"]
+                [day8.re-frame/http-fx "0.2.1"]]
+
+ :builds
+ {:app {:target   :browser
+        :modules  {:main {:init-fn scramble.ui.core/main}}
+        :output-dir "public/js"
+        :devtools {:http-root "public"
+                   :http-port 8090}}}}

@@ -1,0 +1,20 @@
+{:paths   ["src"]
+
+ :deps    {org.clojure/clojure        {:mvn/version "1.10.1"}
+           compojure                  {:mvn/version "1.6.2"}
+           ring/ring-core             {:mvn/version "1.8.1"}
+           ring/ring-json             {:mvn/version "0.5.0"}
+           ring/ring-jetty-adapter    {:mvn/version "1.8.1"}
+           ring-logger                {:mvn/version "1.0.1"}
+           jumblerg/ring-cors         {:mvn/version "2.0.0"}
+           metosin/ring-http-response {:mvn/version "0.9.1"}
+           defbin/scramble            {:mvn/version "0.1.0"}}
+
+ :aliases {:nrepl
+           {:extra-deps {nrepl/nrepl {:mvn/version "RELEASE"}}
+            :main-opts  ["-m" "nrepl.cmdline"]}
+
+           :uberjar
+           {:extra-deps {seancorfield/depstar {:mvn/version "RELEASE"}}
+            :main-opts  ["-m" "hf.depstar.uberjar" "target/scramble-server.jar"
+                         "-C" "-m" "scramble.server"]}}}
