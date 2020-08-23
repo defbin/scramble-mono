@@ -3,6 +3,12 @@
             [scramble.core :refer [scramble?]]))
 
 (deftest scramble-test
+  (testing "str1 is nil"
+    (is (not (scramble? nil "a"))))
+
+  (testing "str2 is nil"
+    (is (not (scramble? "b" nil))))
+
   (testing "both args are empty"
     (is (scramble? "" "")))
 
@@ -13,7 +19,7 @@
     (is (scramble? "any" "")))
 
   (testing "true case"
-    (is (scramble? "bab" "bb")))
+    (is (scramble? "abcd" "bda")))
 
   (testing "false case"
-    (is (not (scramble? "ab" "aa")))))
+    (is (not (scramble? "abcd" "aadb")))))
